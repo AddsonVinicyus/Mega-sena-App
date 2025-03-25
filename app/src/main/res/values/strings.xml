@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">megasena</string>
+    <string name="welcome">Boa Sorte!</string>
+    <string name="gen_numbers_txt">GERAR NÚMEROS</string>
+    <string name="number_hint">Digite um número entre 6 e 15</string>
+
 </resources>
