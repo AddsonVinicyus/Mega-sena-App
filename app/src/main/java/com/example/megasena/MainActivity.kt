@@ -65,7 +65,9 @@ class MainActivity : AppCompatActivity() {
             numbers.add(number + 1)
         }
 
-        showResult(numbers, txtResult)
+        val sortedList = numbers.sorted()
+
+        showResult(sortedList, txtResult)
 
     }
 
@@ -73,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Informe um número entre 6 e 15", Toast.LENGTH_LONG).show()
     }
 
-    private fun showResult(numbers: MutableSet<Int>, txtResult: TextView){
+    private fun showResult(numbers: List<Int>, txtResult: TextView){
         txtResult.text = numbers.joinToString(" - ")
 
         val editor = prefs.edit()
