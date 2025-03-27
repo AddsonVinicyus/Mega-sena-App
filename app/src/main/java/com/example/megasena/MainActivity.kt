@@ -2,11 +2,14 @@ package com.example.megasena
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.WindowInsetsController
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.megasena.databinding.ActivityMainBinding
 import kotlin.random.Random
 
@@ -25,7 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         prefs = getSharedPreferences("db", Context.MODE_PRIVATE)
         val result = prefs.getString("result", null)
-
 
         with(binding){
             result?.let{
@@ -63,15 +65,21 @@ class MainActivity : AppCompatActivity() {
             numbers.add(number + 1)
         }
 
+        showResult(numbers, txtResult)
+
+    }
+
+    private fun displayError(){
+        Toast.makeText(this, "Informe um número entre 6 e 15", Toast.LENGTH_LONG).show()
+    }
+
+    private fun showResult(numbers: MutableSet<Int>, txtResult: TextView){
         txtResult.text = numbers.joinToString(" - ")
 
         val editor = prefs.edit()
         editor.putString("result", txtResult.text.toString())
         editor.apply()
-    }
 
-    private fun displayError(){
-        Toast.makeText(this, "Informe um número entre 6 e 15", Toast.LENGTH_LONG).show()
     }
 }
 

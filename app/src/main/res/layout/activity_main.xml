@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
     <ImageView
         android:src="@drawable/mega_sena_logo"
+        android:contentDescription="@string/logo_desc"
         android:id="@+id/txt_welcome"
         android:layout_width="0dp"
         android:layout_height="80dp"
@@ -21,7 +22,7 @@
     <EditText
         android:id="@+id/edit_number"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:inputType="number"
         android:maxLength="2"
@@ -59,10 +60,10 @@
         android:backgroundTint="@color/white"
         android:textColor="@color/mainGreen"
         android:textAlignment="center"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_result"
         android:textSize="16sp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
